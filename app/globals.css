@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/* ===== Neo Brutalism Design Tokens ===== */
+:root {
+  --ink: #121214;        /* page background */
+  --ink-soft: #1c1c1f;   /* card / panel surface */
+  --paper: #f2ecdc;      /* cream surface for bars, footer, labels */
+  --volt: #e6ff3f;       /* signature accent — primary CTA / press-shadow */
+  --flame: #ff4d6d;      /* secondary accent — ratings, hearts, live */
+  --cobalt: #5271ff;     /* tertiary accent — links, genre tags */
+  --line: #f2ecdc;       /* border color on dark surfaces */
+  --line-strong: #000000;
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+body {
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 42px 42px;
+  background-attachment: fixed;
+  background-position: -1px -1px;
+}
+
+::selection {
+  background: var(--volt);
+  color: #000;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--paper); border: 2px solid var(--ink); }
+
+/* Reusable brutalist primitives */
+.brutal-border {
+  border: 2px solid var(--line);
+}
+
+.brutal-border-strong {
+  border: 3px solid var(--line);
+}
+
+.brutal-shadow {
+  box-shadow: 6px 6px 0 0 var(--volt);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.brutal-shadow-flame {
+  box-shadow: 6px 6px 0 0 var(--flame);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.brutal-shadow-cobalt {
+  box-shadow: 6px 6px 0 0 var(--cobalt);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.brutal-press:hover,
+.brutal-press:focus-visible {
+  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.brutal-press-sm {
+  box-shadow: 3px 3px 0 0 var(--line-strong);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.brutal-press-sm:hover,
+.brutal-press-sm:focus-visible {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.font-display {
+  font-family: var(--font-archivo-black), system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.font-mono-tag {
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 2px solid var(--line-strong);
+  background: var(--volt);
+  color: #000;
+  font-weight: 800;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+}
